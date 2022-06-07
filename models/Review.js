@@ -7,6 +7,27 @@ const User = require('./User')
 
 class Review extends Model {
     // add in vote logic
+    static upvote(body, models){
+        return models.Vote.create({
+            user_id: body.user_id,
+            review_id: body.review_id
+        })
+        .then(() => {
+            return Review.findOne({
+                where: {
+                    id: body.review_id
+                },
+                attributes: [
+                    'id',
+                    'title',
+                    'rating',
+                    [sequelize.literal('SELECT COUNT(*) FROM vote WHERE review.id = vote.review_id'),
+                    'vote_count'                
+                    ]
+                ]
+            });
+        });
+    }
 }
 
 // use sequelize to create fields/columns
