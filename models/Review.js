@@ -33,6 +33,12 @@ Review.init(
         rating: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        review_text: {
+            // DataTypes.text allows review text to be more than 255 characters
+            type: DataTypes.TEXT,
+            // allowNull true this way users can leave textless reviews
+            allowNull: true
         }
     },
     {
