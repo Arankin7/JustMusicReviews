@@ -3,4 +3,9 @@ const Review = require('./Review');
 const Comment = require('./Comment');
 const Vote = require('./Vote');
 
-// create associations between models
+module.exports = {
+    User,
+    Review,
+    Comment,
+    Vote
+}
