@@ -43,6 +43,7 @@ Review.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        
         // Rating field | User can rate the artist/song/album on a scale of 1-10
         rating: {
             type: DataTypes.INTEGER,
