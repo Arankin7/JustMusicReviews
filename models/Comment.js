@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Comment extends Model{}
@@ -20,6 +20,10 @@ Comment.init(
                 len: [1]
             }
         },
+        createdAt: {
+            field: 'created_at',
+            type: Sequelize.DATE
+        }
     }, 
     {
         sequelize,

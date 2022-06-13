@@ -42,5 +42,61 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/login', (req, res) =>{
+    if(req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    else {
+        res.render('login');
+    }
+});
+
+router.get('/review/:id', (req, res) =>{
+    Review.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'title',
+            'rating',
+            'review_text',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'review_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then(dbReviewData => {
+        if(!dbReviewData){
+            res.status(404).json({message: 'No review found with this ID'});
+            return;
+        }
+        // serialize the data
+        const review = dbReviewData.get({plain: true});
+
+        // pass the data to template
+        res.render('single-review', {
+            review,
+            loggedIn: req.session.loggedIn
+        });
+    })
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 module.exports = router;
