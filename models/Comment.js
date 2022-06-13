@@ -20,10 +20,6 @@ Comment.init(
                 len: [1]
             }
         },
-        createdAt: {
-            field: 'created_at',
-            type: Sequelize.DATE
-        }
     }, 
     {
         sequelize,
