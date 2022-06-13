@@ -2,7 +2,6 @@ const { Review, User, Vote, Comment } = require('../../models');
 const router = require('express').Router();
 const sequelize = require('../../config/connection.js');
 const withAuth = require('../../utils/auth.js');
-const { post } = require('.');
 
 // get all reviews
 router.get('/', (req, res) => {
@@ -78,18 +77,20 @@ router.get('/:id', (req, res) => {
 })
 
 // create review
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
+    if(req.session){
         Review.create({
             title: req.body.title,
             rating: req.body.rating,
             review_text: req.body.review_text,
-            user_id: req.body.user_id
+            user_id: req.session.user_id
         })
         .then(dbReviewData => res.json(dbReviewData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err)
         })
+    }
 })
 
 // upvote review
