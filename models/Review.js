@@ -44,7 +44,7 @@ Review.init(
             allowNull: false,
         },
         
-        // Rating field | User can rate the artist/song/album on a scale of 1-10
+        // Rating field | User can rate the artist/song/album on a scale of 1-5
         rating: {
             type: DataTypes.INTEGER,
             allowNull: false
