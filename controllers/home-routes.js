@@ -28,10 +28,9 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    // STILL NEED TO CHANGE THE RESPONSE TO RENDER THE HOMEPAGE RATHER THAN THE DASHBOARD
     .then(dbReviewData =>{
         const reviews = dbReviewData.map(review => review.get({plain: true}));
-        res.render('dashboard', {
+        res.render('homepage', {
             reviews,
             loggedIn: req.session.loggedIn
         });
