@@ -80,7 +80,7 @@ router.post('/login', (req, res) => {
     })
     .then(dbUserData => {
         if(!dbUserData) {
-            res.status(404).json({ message: 'this email isnt recognized' });
+            res.status(404).json({ message: 'this email is not recognized' });
             return;
         }
 
