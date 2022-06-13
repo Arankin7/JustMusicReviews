@@ -10,27 +10,32 @@ User.hasMany(Review, {
 });
 
 Review.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 
 User.belongsToMany(Review, {
     through: Vote,
     as: 'voted_review',
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 
 Review.belongsToMany(User, {
     through: Vote,
     as: 'voted_review',
-    foreignKey: 'review_id'
+    foreignKey: 'review_id',
+    onDelete: 'SET NULL'
 });
 
 Vote.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 
 Vote.belongsTo(Review, {
-    foreignKey: 'review_id'
+    foreignKey: 'review_id',
+    onDelete: 'SET NULL'
 });
 
 User.hasMany(Vote, {
@@ -42,19 +47,22 @@ Review.hasMany(Vote, {
 });
 
 Comment.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 
 Comment.belongsTo(Review, {
-    foreignKey: 'review_id'
+    foreignKey: 'review_id',
+    onDelete: 'SET NULL'
 });
 
 User.hasMany(Comment, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 
 Review.hasMany(Comment, {
-    foreignKey: 'review_id'
+    foreignKey: 'review_id',
 });
 
 
