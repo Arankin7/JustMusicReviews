@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
 });
 
 // create new user
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     User.create({
         username: req.body.username,
         email: req.body.email,
