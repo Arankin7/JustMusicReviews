@@ -1,8 +1,8 @@
 
 <section class="section">
         <div class="container has-text-centered">
-            <h2 class="title">MUSIC REVIEW</h2>
-            <p>HERE IS WHERE ILL PUT A LITTLE INFO ABOUT THE PAGE</p>
+            <h2 class="title has-text-black is-underlined is-size-2">* JUST * MUSIC * REVIEWS *</h2>
+            <p class="is-size-4">Just Music Reviews is a community where music lovers from all over can review and talk music.</p>
             </div>
 </section>
 <div class="columns is-centered" style="padding: 2rem">
@@ -11,9 +11,9 @@
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-content">
-                                    <ul class="review-list">
+                                    <ul class="columns review-list">
                                         {{#each reviews as |review|}}
-                                        <li>
+                                        <li class="column">
                                           {{> review-info review }}
                                         </li>
                                         {{/each}}

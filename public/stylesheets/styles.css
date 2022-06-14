@@ -1,0 +1,35 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+a, p, label{
+    color: black;
+    font-family: 'Kdam Thmor Pro', sans-serif !important;
+}
+
+
+
+img {
+    width: auto;
+    max-height: 400px;
+}
+
+.title{
+    font-family: 'Kdam Thmor Pro', sans-serif !important;
+    letter-spacing: 20px;
+}
+
+input {
+    border: 0;
+}
+
+label {
+    display: block;
+}
+
+input  {
+    outline: none;
+    border: 2px solid blue;
+    border-radius: 5px;
+    padding: .5;
+}

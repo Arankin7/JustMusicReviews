@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUSIC REVIEW</title>
+    <title class="pageTitle has-text-white">JUST MUSIC REVIEWS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
-    <link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
  <body>
      <nav class="navbar is-dark">
@@ -18,10 +18,10 @@
                 <a class="navbar-item" href="/">Homepage</a>
                 <a class="navbar-item" href="/dashboard">Dashboard</a>
                 <a class="navbar-item" href="/dashboard/create/">Write a Review</a>
-                <button id="logout" class="button is primary has-text-black">Logout</button>
+                <a class="navbar-item" href="/logout">Logout</a>
                 {{else}}
-                <a class="button is-primary has-text-black" href="/">Homepage</a>
-                <a class="button is-primary has-text-black" href="/login">Login/Signup</a>
+                <a class="navbar-item has-text-grey-light" href="/">Homepage</a>
+                <a class="navbar-item has-text-grey-light" href="/login">Login/Signup</a>
                 {{/if}}
                 </div>
             </div>
@@ -33,21 +33,22 @@
         </figure>
     </section>
 
-<main class="mx-4">
+<main class="has-background-grey-light">
     {{{ body }}}
 </main>
 
 <footer class="footer rows">
     <div class="row-is-full content has-text-centered">
         <p>
-            <a href="/" class="button is-primary has-text-black">Homepage</a>{{#if loggedIn}} |
-            <a href="/dashboard/" class="button is-primary has-text-black">Dashboard</a>
+            <a href="/">Homepage</a>{{#if loggedIn}} |
+            <a href="/dashboard/">Dashboard</a>
             {{else}}
-            <a href="/login/" class="button is-primary has-text-black">Login</a>
+            |
+            <a href="/login/">Login</a>
             {{/if}}
         </p>
     </div>
-</footer>
+</footer> 
 </div>
 
 {{#if loggedIn}}
@@ -55,5 +56,4 @@
 {{/if}}
      
  </body>
-
 </html>
