@@ -1,0 +1,76 @@
+<section>
+    <fieldset>
+        <legend>Create a New Review</legend>
+
+        {{!-- Form to add a new Review  --}}
+        <form class="new-review-form">
+
+            {{!-- Review Title --}}
+            <div>
+                <label for="review-title">Review Title: </label>
+                <input type="text" id="review-title" name="review-title" />
+            </div>
+
+            {{!-- Review Rating --}}
+            <div>
+                <fieldset class="review-rating">
+                <legend for="review-rating">Rating: </legend>
+                {{!-- User has to choose a rating of 1 through 5 --}}
+                     <div>
+                        <input type="radio" name="review-rating" id="rating1" value="1">
+                        <label for="rating1">1</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="review-rating" id="rating2" value="2">
+                        <label for="rating2">2</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="review-rating" id="rating3" value="3">
+                        <label for="rating3">3</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="review-rating" id="rating4" value="4">
+                        <label for="rating4">4</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="review-rating" id="rating5" value="5">
+                        <label for="rating5">5</label>
+                    </div>
+                </fieldset>
+                {{!-- <label for="review-rating">Rating: </label> --}}
+            </div>
+
+            {{!-- Review Text  --}}
+            <div>
+                <label for="review-text">Review Text: </label>
+                <textarea name="review-text" id="review-text"></textarea>
+            </div>
+
+            <button type="submit">Add Review</button>
+        </form>
+    </fieldset>
+</section>
+
+{{!-- Still need to add reviews submitted by the user here --}}
+
+{{#if reviews.length }}
+<section>
+    <h2>Your Reviews: </h2>
+    <ol>
+        {{#each reviews as |review|}}
+        <li>
+            {{!-- review-info is a Partial --}}
+            {{>review-info review}}
+            {{!-- Link to edit review --}}
+            <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review: </a>
+        </li>
+        {{/each}}
+    </ol> 
+</section>
+{{/if}}
+
+<script src="/javascript/add-review.js"></script>

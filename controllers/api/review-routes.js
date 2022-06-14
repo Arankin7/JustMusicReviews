@@ -65,7 +65,7 @@ router.get('/:id', (req, res) => {
     })
     .then(dbReviewData => {
         if(!dbReviewData) {
-            res.status(404).json({ message: 'Post not found' });
+            res.status(404).json({ message: 'Review not found' });
             return;
         }
         res.json(dbReviewData)
@@ -119,7 +119,7 @@ router.put('/:id', withAuth, (req, res) => {
     )
     .then(updatedReviewData => {
         if(!updatedReviewData) {
-            res.status(404).json({ message: 'Post not found' });
+            res.status(404).json({ message: 'Review not found' });
             return;
         }
         res.json(updatedReviewData)
@@ -139,7 +139,7 @@ router.delete('/:id', withAuth, (req, res) => {
     })
     .then(dbReviewData => {
         if(!dbReviewData) {
-            res.status(404).json({ message: 'Post not found' });
+            res.status(404).json({ message: 'Review not found' });
             return;
         }
         res.json(dbReviewData)

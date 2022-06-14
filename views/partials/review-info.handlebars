@@ -1,0 +1,11 @@
+<article class="review">
+    <div>
+        <a href="/review/{{id}}" target="_blank">{{title}}</a>
+        <span>{{review.rating}}</span>
+    </div>
+    <div>
+        Reviewed by - {{user.username}} on  {{format_date created_at}} 
+        | 
+        <a href="/review/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    </div>
+</article>
