@@ -1,0 +1,24 @@
+<section class="section">
+        <div class="container has-text-centered">
+            <h2 class="title">MUSIC REVIEW</h2>
+            <p>HERE IS WHERE ILL PUT A LITTLE INFO ABOUT THE PAGE</p>
+            </div>
+</section>
+<div class="columns is-centered" style="padding: 2rem">
+                <div class="column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <ul class="review-list">
+                                        {{#each reviews as |review|}}
+                                        <li>
+                                          {{> review-info review }}
+                                        </li>
+                                        {{/each}}
+                                      </ul>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
