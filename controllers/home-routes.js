@@ -3,8 +3,7 @@ const sequelize = require('../config/connection');
 
 const { User, Review, Comment, Vote } = require('../models');
 
-router.get('/', (req, res) => {
-    
+router.get('/', (req, res) => {  
     Review.findAll({
         attributes: [
             'id',

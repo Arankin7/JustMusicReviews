@@ -3,43 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just Music Reviews</title>
+    <title>MUSIC REVIEW</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
-
-<body>
-    <div class="wrapper">
-        <header>
-            <h1>
-                <a href="/">Just Music Reviews</a>
-            </h1>
-            <nav>
+ <body>
+     <nav class="navbar is-dark">
+        <div class="navbar-menu">
+            <div class="navbar-start">
                 {{#if loggedIn}}
-                <a href="/dashboard">My Dashboard</a>
-                <button id="logout">Logout</button>
+                <a class="navbar-item" href="/">Homepage</a>
+                <a class="navbar-item" href="/dashboard">Dashboard</a>
+                <a class="navbar-item" href="/dashboard/create/">Write a Review</a>
+                <button id="logout" class="button is primary has-text-black">Logout</button>
                 {{else}}
-                <a href="/login">Login</a>
+                <a class="button is-primary has-text-black" href="/">Homepage</a>
+                <a class="button is-primary has-text-black" href="/login">Login/Signup</a>
                 {{/if}}
-            </nav>
-        </header>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="hero">
+        <figure class="image">
+            <img src="https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        </figure>
+    </section>
 
-        <main>
-        {{{ body }}}    
-        </main> 
+<main class="mx-4">
+    {{{ body }}}
+</main>
 
-        <footer>
-            Thanks for Visiting!
-        </footer>
-
+<footer class="footer rows">
+    <div class="row-is-full content has-text-centered">
+        <p>
+            <a href="/" class="button is-primary has-text-black">Homepage</a>{{#if loggedIn}} |
+            <a href="/dashboard/" class="button is-primary has-text-black">Dashboard</a>
+            {{else}}
+            <a href="/login/" class="button is-primary has-text-black">Login</a>
+            {{/if}}
+        </p>
     </div>
+</footer>
+</div>
 
-    {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}}
-  
-</body>
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+     
+ </body>
+
 </html>
