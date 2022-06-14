@@ -1,26 +1,26 @@
-<section>
+<section class="columns has-text-black">
+    <div class="column"></div>
+    <div class="column is-one-quarter has-text-left">
     <fieldset>
-        <legend>Create a New Review</legend>
+        <legend class="is-size-4 is-underlined pb-3">Create a New Review</legend>
 
         {{!-- Form to add a new Review  --}}
         <form class="new-review-form">
 
             {{!-- Review Title --}}
             <div>
-                <label for="review-title">Review Title: </label>
+                <label class="pb-2" for="review-title">Review Title: </label>
                 <input type="text" id="review-title" name="review-title" />
             </div>
 
             {{!-- Review Rating --}}
-            <div>
-                <fieldset class="review-rating">
-                <legend for="review-rating">Rating: </legend>
-                {{!-- User has to choose a rating of 1 through 5 --}}
+            <fieldset class="review-rating has-text-left">
+                <legend for="review-rating">Rating: </legend>  
+            {{!-- User has to choose a rating of 1 through 5 --}}
                      <div>
                         <input type="radio" name="review-rating" id="rating1" value="1">
                         <label for="rating1">1</label>
                     </div>
-
                     <div>
                         <input type="radio" name="review-rating" id="rating2" value="2">
                         <label for="rating2">2</label>
@@ -43,30 +43,52 @@
                 </fieldset>
                 {{!-- <label for="review-rating">Rating: </label> --}}
             </div>
-
             {{!-- Review Text  --}}
-            <div>
-                <label for="review-text">Review Text: </label>
+            <div class="column is-one-third has-text-left">          
+            <div class="column has-text-left is-underlined is-size-4 pt-0 pb-4">
+                <label class="pb-4" for="review-text">Review Text: </label>
                 <textarea name="review-text" id="review-text"></textarea>
             </div>
 
-            <button type="submit">Add Review</button>
+            <button class="button is-normal has-background-link is-outlined has-text-white is-rounded" type="submit">Add Review</button>
         </form>
     </fieldset>
+    </div>
+    </div>
+        <div class="column is-one-third">
+            <label class="pb-4 is-size-4 has-text-centered is-underlined" for="review-text">Recent Reviews </label>
+                <div class="column has-text-centered">
+                    <div class="card" id="recentReviewCard">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <ul class="review-list">
+                                        {{#each reviews as |review|}}
+                                        <li class="column">
+                                          {{> review-info review }}
+                                        </li>
+                                        {{/each}}
+                                      </ul>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+    </div>
 </section>
 
 {{!-- Still need to add reviews submitted by the user here --}}
 
 {{#if reviews.length }}
-<section>
-    <h2>Your Reviews: </h2>
+<section class="has-text-black pl-6">
+    <h2 class="is-size-3 is-underlined pb-4">Your Reviews: </h2>
     <ol>
         {{#each reviews as |review|}}
         <li>
             {{!-- review-info is a Partial --}}
             {{>review-info review}}
             {{!-- Link to edit review --}}
-            <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review: </a>
+            <a href="/dashboard/edit/{{review.id}}" class="edit-link is-italic is-size-7">Edit Review: </a>
         </li>
         {{/each}}
     </ol> 
