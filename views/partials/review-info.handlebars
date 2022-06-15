@@ -1,10 +1,14 @@
-<article class="review">
+<article class="review has-text-centered">
     <div>
-        <a class="is-size-4 is-underlined is-capitalized" href="/review/{{id}}" target="_blank">{{title}}</a>
+        <a class="is-size-3 is-underlined is-capitalized" href="/review/{{id}}" target="_blank">*{{title}}*</a>
+        <a href=""></a>
         <span>{{review.rating}}</span>
     </div>
-    <div class="has-text-left is-size-7">
-        Reviewed by - {{user.username}} on  {{format_date created_at}} 
+    <div class="is-size-4">
+        {{review_text}}
+    </div>
+    <div class="has-text-centered is-size-7">
+        Reviewed by - {{user.username}} on  {{format_date created_at}}
         | 
         <a href="/review/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
     </div>

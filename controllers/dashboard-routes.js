@@ -62,7 +62,7 @@ router.get('/edit/:id', withAuth, (req, res) =>{
             'rating',
             'review_text',
             'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.review_id)'), 'vote_count']
         ],
         include: [
             {
@@ -97,6 +97,30 @@ router.get('/edit/:id', withAuth, (req, res) =>{
         });
     })
     .catch(err =>{
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+// create new review
+router.get('/create/', withAuth, (req, res) => {
+    Review.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
+        attributes: [
+            'id',
+            'title',
+            'rating',
+            'review_text',
+            'created_at'
+        ]
+    })
+    .then(dbReviewData => {
+        const review = dbReviewData.map(review => review.get({ plain: true }));
+        res.render('create-review', { review, loggedIn: true });
+    })
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
