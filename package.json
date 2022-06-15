@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Arankin7/project2#readme",
   "dependencies": {
+    "argon2": "^0.28.5",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.4",
     "dotenv": "^16.0.1",

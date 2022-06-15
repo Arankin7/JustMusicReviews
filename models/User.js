@@ -1,12 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const bcrypt = require('bcrypt');
+const argon2 = require('argon2');
 
 // Create the User model
 class User extends Model {
     // Set up method to run on instance data (per user) to check password
     checkPassword(loginPw){
-        return bcrypt.compareSync(loginPw, this.password);
+        return argon2.verify(this.password, loginPw);
     }
 }
 
@@ -42,14 +42,24 @@ User.init(
         hooks: {
             // Setup beforeCreate lifecycle "hook" functionality
             async beforeCreate(newUserData){
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
+                try {
+                    newUserData.password = await argon2.hash(newUserData.password, { hashLength: 10 });
+                    return newUserData;
+                }
+                catch (err) {
+                    alert(err);
+                }
             },
 
             // setup beforeUpdate lifecycle "hook" functionality
             async beforeUpdate(updatedUserData){
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
+                try {
+                    updatedUserData.password = await argon2.hash(updatedUserData.password, { hashLength: 10 });
+                    return updatedUserData;
+                }
+                catch (err) {
+                    alert(err);
+                }
             }
         },
         sequelize,
