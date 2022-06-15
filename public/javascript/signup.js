@@ -3,9 +3,9 @@ async function signupFormHandler(event){
 
     console.log('Submit Clicked');
 
-    const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+    const username = document.querySelector('input[name="username-signup"]').value.trim();
+    const email = document.querySelector('input[name="email-signup"]').value.trim();
+    const password = document.querySelector('input[name="password-signup"]').value.trim();
     
     console.log(username, email, password);
 
@@ -17,16 +17,13 @@ async function signupFormHandler(event){
                 email,
                 password
             }),
-            headers: { 'Content-Type': 'application/json'}
-        })
+            headers: {'Content-Type': 'application/json'}
+        });
 
-        // check the response status
-        if(response.ok){
-            console.log('User Created');
-            document.location.replace('/dashboard/');
-        }
-        else{
-            alert(response.statusText)
+        if(response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert(response.statusText);
         }
     }
 }
