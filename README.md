@@ -22,7 +22,7 @@
 
   ## Contribution 
   - Anthony: [Github](https://github.com/arankin7)
-  - Robert: [Github](browniecharl)
-  - Kenny: [Github](kgil60)
-  - Aiden: [Github](Skiddzie)
-  - Trevor: [Github](TrevorS2001))
+  - Robert: [Github](https://github.com/browniecharl)
+  - Kenny: [Github](https://github.com/kgil60)
+  - Aidan: [Github](https://github.com/Skiddzie)
+  - Trevor: [Github](https://github.com/TrevorS2001)
