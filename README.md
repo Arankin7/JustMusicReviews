@@ -1,4 +1,4 @@
-(# Just Music Reviews
+# Just Music Reviews
 
 ![](/assets/images/login.png)
 
