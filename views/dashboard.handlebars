@@ -80,7 +80,7 @@
 {{!-- Still need to add reviews submitted by the user here --}}
 
 {{#if reviews.length }}
-<section class="has-text-black pl-6">
+<section class="has-text-black pl-6 has-text-centered">
     <h2 class="is-size-3 is-underlined pb-4">Your Reviews: </h2>
     <ol>
         {{#each reviews as |review|}}
@@ -88,7 +88,7 @@
             {{!-- review-info is a Partial --}}
             {{>review-info review}}
             {{!-- Link to edit review --}}
-            <a href="/dashboard/edit/{{review.id}}" class="edit-link is-italic is-size-7">Edit Review: </a>
+            <a href="/dashboard/edit/{{review.id}}" class="edit-link has-text-right is-italic is-size-7">Edit Review: </a>
         </li>
         {{/each}}
     </ol> 

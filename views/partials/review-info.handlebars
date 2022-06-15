@@ -8,7 +8,7 @@
         {{review_text}}
     </div>
     <div class="has-text-centered is-size-7">
-        Reviewed by - {{user.username}} on  {{format_date created_at}} and {{comment_text}}
+        Reviewed by - {{user.username}} on  {{format_date created_at}}
         | 
         <a href="/review/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
     </div>

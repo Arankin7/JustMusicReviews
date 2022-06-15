@@ -1,11 +1,9 @@
 // file to create helper functions to format date/singular plural words
 
-const { format } = require("express/lib/response");
-
 module.exports = {
     // used to properly format the date
     format_date: date => {
-        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear}`;
+        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
     },
 
     // used to properly pluralize words (votes, reviews, etc)
