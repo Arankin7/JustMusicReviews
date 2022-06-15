@@ -1,16 +1,45 @@
 <section>
     <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
-  <h2 class="title">Create new post</h2><hr>
+  <h2 class="title has-text-centered">*Create New Review*</h2><hr>
 
-  <form class="new-post-form">
+  <form class="new-review-form">
     <div>
-      <label for="post-title">Title:</label>
-      <input class="input" type="text" id="post-title" name="post-title" placeholder="insert title here"/>
+      <fieldset class="review-rating has-text-centered">
+                <legend for="review-rating" class="is-size-4">Rating: </legend>  
+            {{!-- User has to choose a rating of 1 through 5 --}}
+                     <div>
+                        <input type="radio" name="review-rating" id="rating1" value="1">
+                        <label for="rating1">1</label>
+                    
+                    <div>
+                        <input type="radio" name="review-rating" id="rating2" value="2">
+                        <label for="rating2">2</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="review-rating" id="rating3" value="3">
+                        <label for="rating3">3</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="review-rating" id="rating4" value="4">
+                        <label for="rating4">4</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="review-rating" id="rating5" value="5">
+                        <label for="rating5">5</label>
+                    </div>
+                </fieldset>
+      <label class="has-text-centered is-size-4" for="review-title">Title:</label>
+      <input class="input" type="text" id="review-title" name="review-title" placeholder="insert title here"/>
     </div>
     <div>
-      <label for="post-text">Content:</label>
-      <input class="textarea is-large" id="post-text" name="post-text" placeholder="insert text here"/>
+      <label class="has-text-centered is-size-4" for="review-text">Content:</label>
+      <textarea name="review-text" id="review-text"></textarea>
     </div>
     <button type="submit" class="button is-dark is-pulled-right">Create post</button>
   </form>
 </section>
+
+<script src="/javascript/add-review.js"></script>

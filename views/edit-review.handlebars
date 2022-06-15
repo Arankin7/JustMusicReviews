@@ -1,1 +1,26 @@
-<h1>sjkladh f</h1>
+<article class="has-text-black">
+  <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
+  <h2 class="title has-text-centered">Edit Review</h2><hr>
+  <form class="edit-review-form">
+    <div>
+        <label class="has-text-centered" for="post-title">Review title:</label>
+      <input class="input" name="review-title" type="text" value="{{review.title}}" />
+    </div>
+    <div>
+        <label class="has-text-centered" for="review-text">Review content:</label>
+      <input class="textarea" name="review-content" type="text" value="{{review.review_text}}" />
+    </div>
+    <div class="is-pulled-right">
+       Created by you on {{format_date review.created_at}}
+      |
+      <a href="/review/{{review.id}}">{{review.comments.length}} {{format_plural "comment" review.comments.length}}</a>
+    </div>
+    <button type="submit" class="button is-link m-4">Save post</button>
+    <button type="button" class="button is-danger delete-review-btn m-4">Delete post</button>
+  </form>
+</article>
+
+{{> comments review.comments}}
+
+<script src="/javascript/delete-review.js"></script>
+<script src="/javascript/edit-review.js"></script>
