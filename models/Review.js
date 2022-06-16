@@ -21,7 +21,7 @@ class Review extends Model {
                     'id',
                     'title',
                     'rating',
-                    [sequelize.literal('SELECT COUNT(*) FROM vote WHERE review.id = vote.review_id'),
+                    [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE review.id = vote.review_id'),
                     'vote_count'                
                     ]
                 ]

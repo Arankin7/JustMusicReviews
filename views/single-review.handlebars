@@ -9,10 +9,10 @@
 
   <div>
     <button class="button is-link is-rounded has-text-white ml-5 mt-3" type="submit">Add Comment</button>
+    <button type="button" class="vote-btn">like</button
   </div>
   
 </form>
-</div>
 </div>
 {{> comments review.comments}}
 {{/if}}
@@ -23,4 +23,6 @@
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
+
+<script src="/javascript/vote.js"></script>
 {{/if}}
