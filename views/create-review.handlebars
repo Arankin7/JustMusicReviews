@@ -1,9 +1,10 @@
-<section>
+<section class="has-text-black">
     <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
-  <h2 class="title has-text-centered">*Create New Review*</h2><hr>
+  <h2 class="title has-text-centered">*Create New Review*</h2>
 
-  <form class="new-review-form">
-    <div>
+    <form class="new-review-form">
+      <div class="columns">
+  <div class="column is-one-quarter">    
       <fieldset class="review-rating has-text-centered">
                 <legend for="review-rating" class="is-size-4">Rating: </legend>  
             {{!-- User has to choose a rating of 1 through 5 --}}
@@ -30,16 +31,22 @@
                         <input type="radio" name="review-rating" id="rating5" value="5">
                         <label for="rating5">5</label>
                     </div>
+                    </div>
                 </fieldset>
+                </div> 
+                <div class="column">
       <label class="has-text-centered is-size-4" for="review-title">Title:</label>
-      <input class="input" type="text" id="review-title" name="review-title" placeholder="insert title here"/>
-    </div>
+      <input class="input" style="border:2px solid blue ;" type="text" id="review-title" name="review-title" placeholder="insert title here"/>
+    
     <div>
-      <label class="has-text-centered is-size-4" for="review-text">Content:</label>
+      <label class="has-text-centered is-size-4" for="review-text">Review:</label>
       <textarea name="review-text" id="review-text"></textarea>
     </div>
-    <button type="submit" class="button is-dark is-pulled-right">Create post</button>
-  </form>
+    <button type="submit" class="button is-link is-pulled-left mt-3">Post Review</button>
+  </form> 
+  </div>
+  <div class="column is-one-third"></div>  
+  </div>
 </section>
 
 <script src="/javascript/add-review.js"></script>
