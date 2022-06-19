@@ -1,5 +1,5 @@
 * {
-    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-family: 'Kdam Thmor Pro', sans-serif !important;
 }
 
 img {
@@ -43,4 +43,8 @@ textarea {
   font-size: 18px;
   outline: none;
 
+}
+
+.card {
+    outline: 2px solid blue;
 }

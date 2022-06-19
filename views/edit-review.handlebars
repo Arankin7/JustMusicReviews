@@ -1,23 +1,26 @@
-<article class="has-text-black">
-  <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
-  <h2 class="title has-text-centered">Edit Review</h2><hr>
-  <form class="edit-review-form">
+<article class="has-text-black pt-3">
+  <h2 class="title has-text-centered is-underlined">*Edit Review*</h2>
+  <div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+  <form class="edit-review-form pb-2">
     <div>
-        <label class="has-text-centered" for="post-title">Review title:</label>
-      <input class="input" name="review-title" type="text" value="{{review.title}}" />
+        <label class="has-text-centered is-underlined" for="post-title">Review title:</label>
+      <input class="input" style="border:2px solid blue ;" name="review-title" type="text" value="{{review.title}}" />
     </div>
     <div>
-        <label class="has-text-centered" for="review-text">Review content:</label>
-      <input class="textarea" name="review-content" type="text" value="{{review.review_text}}" />
+        <label class="has-text-centered is-underlined" for="review-text">Review:</label>
+      <input class="textarea mb-3" style="border:2px solid blue ;" name="review-content" type="text" value="{{review.review_text}}" />
     </div>
-    <div class="is-pulled-right">
+    <div class="is-pulled-right pt-2">
        Created by you on {{format_date review.created_at}}
       |
       <a href="/review/{{review.id}}">{{review.comments.length}} {{format_plural "comment" review.comments.length}}</a>
     </div>
-    <button type="submit" class="button is-link m-4">Save post</button>
-    <button type="button" class="button is-danger delete-review-btn m-4">Delete post</button>
+    <button type="submit" class="button is-link">Save post</button>
+    <button type="button" class="button is-danger delete-review-btn">Delete post</button>
   </form>
+  </div>
+  </div>
 </article>
 
 {{> comments review.comments}}
